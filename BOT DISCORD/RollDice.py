@@ -10,6 +10,17 @@ client = commands.Bot(intents=discord.Intents.all(), command_prefix='>', case_in
 async def on_read():
     print('Estamos online')
 
+
+@client.event
+async def on_message(message):
+    if message.content == "mamaco".lower():
+        await message.channel.send("GO RI LA")
+    await client.process_commands(message)
+
+@client.command()
+async def ping(ctx):
+    await ctx.reply(f"Pong! {round(client.latency * 1000)}ms")
+
 @client.command(
     help='Tabela de itens magicos A',
     brief="Tabela A de itens magicos"
