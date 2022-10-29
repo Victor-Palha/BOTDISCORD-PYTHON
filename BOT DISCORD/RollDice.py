@@ -2,15 +2,13 @@ import discord
 from random import randint
 from discord.ext import commands
 from random import choice
+from idBot import idBOT
 
-client = commands.Bot(command_prefix='>', case_insensitive=True)
-
+client = commands.Bot(intents=discord.Intents.all(), command_prefix='>', case_insensitive=True)
 
 @client.event
 async def on_read():
     print('Estamos online')
-
-
 
 @client.command(
     help='Tabela de itens magicos A',
@@ -940,4 +938,4 @@ async def quest(ctx):
     await npc.__call__(ctx)
 
 
-#client.run('ID DO BOT NO DISCORD')
+client.run(idBOT)
